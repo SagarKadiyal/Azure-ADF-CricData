@@ -1,0 +1,9 @@
+{
+	"name": "adf-Sagar-Cric-dev-Datafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8c7afb8f-7887-4015-a6aa-9a94fd4ae4ff",
+		"tenantId": "e544a85f-3d4a-4d08-950a-46bb7d9749c9"
+	}
+}
