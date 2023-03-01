@@ -1,0 +1,56 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "cric",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "flatten1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          meta as (data_version as string, created as string, revision as integer),",
+				"          info as (balls_per_over as integer, city as string, dates as string[], event as (name as string, match_number as integer), gender as string, match_type as string, match_type_number as integer, officials as (match_referees as string[], tv_umpires as string[], umpires as string[]), outcome as (winner as string, by as (runs as integer)), player_of_match as string[], players as (India as string[], Australia as string[]), registry as (people as ({A Kumble} as string, {AC Gilchrist} as string, {Aleem Dar} as string, {DR Martyn} as string, {G Gambhir} as string, {GD McGrath} as string, {Harbhajan Singh} as string, {JL Langer} as string, {JN Gillespie} as string, {K Hariharan} as string, {KD Karthik} as string, {M Kaif} as string, {M Kartik} as string, {MJ Clarke} as string, {ML Hayden} as string, {MS Kasprowicz} as string, {NM Hauritz} as string, {R Dravid} as string, {RE Koertzen} as string, {RS Madugalle} as string, {RT Ponting} as string, {SM Katich} as string, {SR Tendulkar} as string, {V Sehwag} as string, {VVS Laxman} as string, {Z Khan} as string)), season as string, team_type as string, teams as string[], toss as (decision as string, winner as string), venue as string),",
+				"          innings as (team as string, overs as (over as integer, deliveries as (batter as string, bowler as string, non_striker as string, runs as (batter as integer, extras as integer, total as integer))[])[])[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source1",
+				"source1 foldDown(unroll(info.dates),",
+				"     mapColumn(",
+				"          balls_per_over = info.balls_per_over,",
+				"          city = info.city,",
+				"          dates = info.dates,",
+				"          event = info.event,",
+				"          gender = info.gender,",
+				"          match_type = info.match_type,",
+				"          match_type_number = info.match_type_number,",
+				"          officials = info.officials,",
+				"          outcome = info.outcome,",
+				"          player_of_match = info.player_of_match,",
+				"          players = info.players,",
+				"          registry = info.registry,",
+				"          season = info.season,",
+				"          team_type = info.team_type,",
+				"          teams = info.teams,",
+				"          toss = info.toss,",
+				"          venue = info.venue",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1"
+			]
+		}
+	}
+}

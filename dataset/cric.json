@@ -1,0 +1,303 @@
+{
+	"name": "cric",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageCric",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "64102.json",
+				"container": "cricdata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"meta": {
+					"type": "object",
+					"properties": {
+						"data_version": {
+							"type": "string"
+						},
+						"created": {
+							"type": "string"
+						},
+						"revision": {
+							"type": "integer"
+						}
+					}
+				},
+				"info": {
+					"type": "object",
+					"properties": {
+						"balls_per_over": {
+							"type": "integer"
+						},
+						"city": {
+							"type": "string"
+						},
+						"dates": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"event": {
+							"type": "object",
+							"properties": {
+								"name": {
+									"type": "string"
+								},
+								"match_number": {
+									"type": "integer"
+								}
+							}
+						},
+						"gender": {
+							"type": "string"
+						},
+						"match_type": {
+							"type": "string"
+						},
+						"match_type_number": {
+							"type": "integer"
+						},
+						"officials": {
+							"type": "object",
+							"properties": {
+								"match_referees": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								},
+								"tv_umpires": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								},
+								"umpires": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								}
+							}
+						},
+						"outcome": {
+							"type": "object",
+							"properties": {
+								"winner": {
+									"type": "string"
+								},
+								"by": {
+									"type": "object",
+									"properties": {
+										"runs": {
+											"type": "integer"
+										}
+									}
+								}
+							}
+						},
+						"player_of_match": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"players": {
+							"type": "object",
+							"properties": {
+								"India": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								},
+								"Australia": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								}
+							}
+						},
+						"registry": {
+							"type": "object",
+							"properties": {
+								"people": {
+									"type": "object",
+									"properties": {
+										"A Kumble": {
+											"type": "string"
+										},
+										"AC Gilchrist": {
+											"type": "string"
+										},
+										"Aleem Dar": {
+											"type": "string"
+										},
+										"DR Martyn": {
+											"type": "string"
+										},
+										"G Gambhir": {
+											"type": "string"
+										},
+										"GD McGrath": {
+											"type": "string"
+										},
+										"Harbhajan Singh": {
+											"type": "string"
+										},
+										"JL Langer": {
+											"type": "string"
+										},
+										"JN Gillespie": {
+											"type": "string"
+										},
+										"K Hariharan": {
+											"type": "string"
+										},
+										"KD Karthik": {
+											"type": "string"
+										},
+										"M Kaif": {
+											"type": "string"
+										},
+										"M Kartik": {
+											"type": "string"
+										},
+										"MJ Clarke": {
+											"type": "string"
+										},
+										"ML Hayden": {
+											"type": "string"
+										},
+										"MS Kasprowicz": {
+											"type": "string"
+										},
+										"NM Hauritz": {
+											"type": "string"
+										},
+										"R Dravid": {
+											"type": "string"
+										},
+										"RE Koertzen": {
+											"type": "string"
+										},
+										"RS Madugalle": {
+											"type": "string"
+										},
+										"RT Ponting": {
+											"type": "string"
+										},
+										"SM Katich": {
+											"type": "string"
+										},
+										"SR Tendulkar": {
+											"type": "string"
+										},
+										"V Sehwag": {
+											"type": "string"
+										},
+										"VVS Laxman": {
+											"type": "string"
+										},
+										"Z Khan": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"season": {
+							"type": "string"
+						},
+						"team_type": {
+							"type": "string"
+						},
+						"teams": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"toss": {
+							"type": "object",
+							"properties": {
+								"decision": {
+									"type": "string"
+								},
+								"winner": {
+									"type": "string"
+								}
+							}
+						},
+						"venue": {
+							"type": "string"
+						}
+					}
+				},
+				"innings": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"team": {
+								"type": "string"
+							},
+							"overs": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"over": {
+											"type": "integer"
+										},
+										"deliveries": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"batter": {
+														"type": "string"
+													},
+													"bowler": {
+														"type": "string"
+													},
+													"non_striker": {
+														"type": "string"
+													},
+													"runs": {
+														"type": "object",
+														"properties": {
+															"batter": {
+																"type": "integer"
+															},
+															"extras": {
+																"type": "integer"
+															},
+															"total": {
+																"type": "integer"
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
